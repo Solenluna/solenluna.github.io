@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Olena Voronenko</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #1a1a1a;
+            --accent-color: #707070;
+            --card-bg: #f5f5f5;
+            --gap: 24px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --text-color: #e5e5e5;
+                --accent-color: #a0a0a0;
+                --card-bg: #1a1a1a;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: calc(var(--gap) * 2) var(--gap);
+            line-height: 1.7;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            max-width: 1000px;
+            margin: 0 auto calc(var(--gap) * 3) auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: var(--gap);
+        }
+
+        .brand h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+        }
+
+        .brand p {
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        nav a:hover {
+            border-color: var(--text-color);
+        }
+
+        /* About Layout */
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 40% 1fr;
+            gap: calc(var(--gap) * 2);
+            align-items: start;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            background-color: var(--card-bg);
+        }
+
+        .about-content h2 {
+            font-size: 1.75rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font-size: 1.05rem;
+        }
+
+        .bio-details {
+            margin-top: calc(var(--gap) * 1.5);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap);
+            border-top: 1px solid var(--card-bg);
+            padding-top: var(--gap);
+        }
+
+        .detail-block h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        .detail-block ul {
+            list-style: none;
+        }
+
+        .detail-block li {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        footer {
+            max-width: 1000px;
+            margin: calc(var(--gap) * 4) auto 0 auto;
+            text-align: center;
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-bg);
+            padding-top: var(--gap);
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: var(--gap);
+            }
+            .profile-photo {
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+            .bio-details {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                margin-top: 10px;
+            }
+            nav a {
+                margin-left: 0;
+                margin-right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <h1>Olena Voronenko</h1>
+            <p>Artist</p>
+        </div>
+        <nav>
+            <a href="index.html">Work</a>
+            <a href="about.html">About</a>
+            <a href="mailto:your.email@example.com">Contact</a>
+            <a href="instagram.com/voronenko_art">Instagram</a>
+        </nav>
+    </header>
+
+    <main class="about-container">
+        <!-- Left Column: Portrait -->
+        <div class="profile-photo">
+            <!-- Replace this Unsplash URL with a photo of yourself or your studio space -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800" alt="Alex Morgan Portrait">
+        </div>
+
+        <!-- Right Column: Text Content -->
+        <div class="about-content">
+            <h2>Behind the Canvas</h2>
+            <p>I am a visual artist currently working out of my studio in Portland, Oregon. My work explores the intersection of organic textures, structural geometry, and the delicate balance of light within abstract digital frameworks.</p>
+            <p>With a background in fine arts and traditional oil painting, I transitioned into digital media to blur the lines between tactical depth and screen-based experiences. Every piece I create focuses on evoking an immediate spatial emotion through rich color interactions.</p>
+            
+            <!-- Quick CV/Details Section -->
+            <div class="bio-details">
+                <div class="detail-block">
+                    <h4>Selected Exhibitions</h4>
+                    <ul>
+                        <li><strong>2026</strong> — Horizon Gallery, Group Show</li>
+                        <li><strong>2025</strong> — Chroma Solo Exhibition, MoMA Pop-up</li>
+                        <li><strong>2024</strong> — Nuances of Digital Art, District Arts</li>
+                    </ul>
+                </div>
+                <div class="detail-block">
+                    <h4>Education & Awards</h4>
+                    <ul>
+                        <li>BFA in Illustration, RISD</li>
+                        <li>Adobe Creative Excellence Award (2025)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Olena Voronenko. Built with simplicity.</p>
+    </footer>
+
+</body>
+</html>
