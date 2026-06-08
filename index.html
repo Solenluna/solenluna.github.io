@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #1a1a1a;
+            --accent-color: #707070;
+            --card-bg: #f5f5f5;
+            --gap: 24px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --text-color: #e5e5e5;
+                --accent-color: #a0a0a0;
+                --card-bg: #1a1a1a;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: calc(var(--gap) * 2) var(--gap);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            max-width: 1200px;
+            margin: 0 auto calc(var(--gap) * 2) auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: var(--gap);
+        }
+
+        .brand h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+        }
+
+        .brand p {
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        nav a:hover {
+            border-color: var(--text-color);
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-auto-rows: 10px;
+            gap: 0 var(--gap);
+        }
+
+        .gallery-item {
+            background-color: var(--card-bg);
+            margin-bottom: var(--gap);
+            break-inside: avoid;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, cubic-bezier(0.1, 0.8, 0.3, 1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.015);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .item-info {
+            padding: 16px;
+        }
+
+        .item-info h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .item-info p {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+        }
+
+        /* Lightbox for viewing full images */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        footer {
+            max-width: 1200px;
+            margin: calc(var(--gap) * 3) auto 0 auto;
+            text-align: center;
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-bg);
+            padding-top: var(--gap);
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                margin-top: 10px;
+            }
+            nav a {
+                margin-left: 0;
+                margin-right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <h1>Alex Morgan</h1>
+            <p>Visual Artist & Illustrator</p>
+        </div>
+        <nav>
+            <a href="#portfolio">Work</a>
+            <a href="mailto:your.email@example.com">Contact</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </nav>
+    </header>
+
+    <main class="gallery" id="gallery">
+        <!-- Item 1 -->
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800" alt="Artwork 1">
+            <div class="item-info">
+                <h3>Serenity in Chaos</h3>
+                <p>Digital Painting, 2025</p>
+            </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=800" alt="Artwork 2">
+            <div class="item-info">
+                <h3>Abstract Forms No. 4</h3>
+                <p>Acrylic on Canvas, 2026</p>
+            </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800" alt="Artwork 3">
+            <div class="item-info">
+                <h3>Echoes of Light</h3>
+                <p>Mixed Media, 2024</p>
+            </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=800" alt="Artwork 4">
+            <div class="item-info">
+                <h3>Subterranean</h3>
+                <p>Oil Paint, 2025</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="Enlarged view">
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Alex Morgan. Built with simplicity.</p>
+    </footer>
+
+    <script>
+        // Pinterest/Masonry Style Layout Logic
+        function resizeGridItem(item){
+            const grid = document.getElementById("gallery");
+            const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+            const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
+            const rowSpan = Math.ceil((item.querySelector('.gallery-item img').getBoundingClientRect().height + item.querySelector('.item-info').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+            item.style.gridRowEnd = "span " + rowSpan;
+        }
+
+        function resizeAllGridItems(){
+            const allItems = document.getElementsByClassName("gallery-item");
+            for(let x = 0; x < allItems.length; x++){
+                resizeGridItem(allItems[x]);
+            }
+        }
+
+        // Run layout on load and resize
+        window.addEventListener("load", resizeAllGridItems);
+        window.addEventListener("resize", resizeAllGridItems);
+        
+        // Ensure layout triggers after images actually load
+        allImages = document.getElementsByTagName('img');
+        for(let i = 0; i < allImages.length; i++) {
+            allImages[i].addEventListener('load', resizeAllGridItems);
+        }
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const imgStr = item.querySelector('img').src;
+                lightboxImg.src = imgStr;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
