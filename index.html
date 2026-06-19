@@ -114,6 +114,7 @@
         .item-info p {
             color: var(--accent-color);
             font-size: 0.85rem;
+            display: none; /* Hides the <p> tags on the main gallery page */
         }
 
         /* Lightbox for viewing full images */
@@ -167,6 +168,12 @@
             color: #cccccc;
             font-size: 0.95rem;
             margin-bottom: 4px;
+        }
+
+                /* Overrides the display rule specifically when inside the lightbox */
+        .lightbox-caption .item-info p {
+            display: block;
+            color: #cccccc; /* Maintains your intended lightbox text color */
         }
 
         footer {
